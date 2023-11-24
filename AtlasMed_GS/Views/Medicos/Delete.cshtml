@@ -38,12 +38,23 @@
         }
 
     </style>
+    <script>
+        function confirmarExclusao() {
+            var confirmacao = confirm("Tem certeza que deseja excluir este médico? Esta ação é irreversível!");
+
+            if (confirmacao) {
+                alert("Médico excluído com sucesso!");
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
 
     <h2>Excluir</h2>
 
-    <h3>Tem certeza? Esta ação é irreversível!</h3>
     <div>
         <hr />
         <dl class="row">
@@ -79,7 +90,7 @@
             </dd>
         </dl>
     
-        <form asp-action="Delete">
+        <form asp-action="Delete" onsubmit="return confirmarExclusao()">
             <input type="hidden" asp-for="IdMedico" />
             <input type="submit" value="Excluir" class="btn btn-danger" /> |
             <a asp-action="Index">Voltar</a>

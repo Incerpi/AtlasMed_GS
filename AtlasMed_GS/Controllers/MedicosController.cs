@@ -48,7 +48,7 @@ namespace AtlasMed_GS.Controllers
         // GET: Medicos/Create
         public IActionResult Create()
         {
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro");
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace AtlasMed_GS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro", medico.IdHospital);
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome", medico.IdHospital);
             return View(medico);
         }
 
@@ -82,7 +82,7 @@ namespace AtlasMed_GS.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro", medico.IdHospital);
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome", medico.IdHospital);
             return View(medico);
         }
 
@@ -118,7 +118,7 @@ namespace AtlasMed_GS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro", medico.IdHospital);
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome", medico.IdHospital);
             return View(medico);
         }
 

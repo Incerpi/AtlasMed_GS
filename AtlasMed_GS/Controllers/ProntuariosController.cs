@@ -48,7 +48,7 @@ namespace AtlasMed_GS.Controllers
         // GET: Prontuarios/Create
         public IActionResult Create()
         {
-            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Descricao");
+            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Nome");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace AtlasMed_GS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Descricao", prontuario.IdMedicacao);
+            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Nome", prontuario.IdMedicacao);
             return View(prontuario);
         }
 
@@ -82,7 +82,7 @@ namespace AtlasMed_GS.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Descricao", prontuario.IdMedicacao);
+            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Nome", prontuario.IdMedicacao);
             return View(prontuario);
         }
 
@@ -118,7 +118,7 @@ namespace AtlasMed_GS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Descricao", prontuario.IdMedicacao);
+            ViewData["IdMedicacao"] = new SelectList(_context.Medicacao, "IdMedicacao", "Nome", prontuario.IdMedicacao);
             return View(prontuario);
         }
 

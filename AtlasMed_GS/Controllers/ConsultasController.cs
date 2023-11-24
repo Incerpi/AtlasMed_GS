@@ -51,10 +51,10 @@ namespace AtlasMed_GS.Controllers
         // GET: Consultas/Create
         public IActionResult Create()
         {
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro");
-            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Cpf");
-            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Bairro");
-            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Alergias");
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome");
+            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Nome");
+            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Nome");
+            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Descricao");
             return View();
         }
 
@@ -71,10 +71,10 @@ namespace AtlasMed_GS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro", consulta.IdHospital);
-            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Cpf", consulta.IdMedico);
-            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Bairro", consulta.IdPaciente);
-            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Alergias", consulta.IdProntuario);
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome", consulta.IdHospital);
+            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Nome", consulta.IdMedico);
+            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Nome", consulta.IdPaciente);
+            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Descricao", consulta.IdProntuario);
             return View(consulta);
         }
 
@@ -91,10 +91,10 @@ namespace AtlasMed_GS.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro", consulta.IdHospital);
-            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Cpf", consulta.IdMedico);
-            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Bairro", consulta.IdPaciente);
-            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Alergias", consulta.IdProntuario);
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome", consulta.IdHospital);
+            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Nome", consulta.IdMedico);
+            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Nome", consulta.IdPaciente);
+            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Descricao", consulta.IdProntuario);
             return View(consulta);
         }
 
@@ -130,10 +130,10 @@ namespace AtlasMed_GS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Bairro", consulta.IdHospital);
-            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Cpf", consulta.IdMedico);
-            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Bairro", consulta.IdPaciente);
-            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Alergias", consulta.IdProntuario);
+            ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome", consulta.IdHospital);
+            ViewData["IdMedico"] = new SelectList(_context.Medico, "IdMedico", "Nome", consulta.IdMedico);
+            ViewData["IdPaciente"] = new SelectList(_context.Paciente, "IdPaciente", "Nome", consulta.IdPaciente);
+            ViewData["IdProntuario"] = new SelectList(_context.Prontuario, "IdProntuario", "Descricao", consulta.IdProntuario);
             return View(consulta);
         }
 

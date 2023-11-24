@@ -46,15 +46,36 @@
         }
 
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#filtroNome').on('input', function () {
+                var filtro = $(this).val().toLowerCase(); 
+
+                $('tbody tr').each(function () {
+                    var nomePaciente = $(this).find('td:eq(0)').text().toLowerCase();
+
+                    if (nomePaciente.includes(filtro)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
     <h2>Lista de Pacientes</h2>
 
+    <input type="text" id="filtroNome" placeholder="Filtrar por Nome" />
+
     <p>
         <a style="color: #fff" asp-action="Create">Cadastrar Paciente</a>
     </p>
-    <table class="table">
+
+    <table class="table" id="tabelaPacientes">
         <thead>
             <tr>
                 <th>
