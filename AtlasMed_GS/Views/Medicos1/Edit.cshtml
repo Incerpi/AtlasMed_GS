@@ -4,52 +4,95 @@
     ViewData["Title"] = "Editar Médico";
 }
 
-<h2>Editar Médico</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtlasMed - Sua plataforma de gerenciamento de registros médicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3498db;
+            color: #333;
+        }
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdMedico" />
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label">Nome:</label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cpf" class="control-label">CPF:</label>
-                <input asp-for="Cpf" class="form-control" />
-                <span asp-validation-for="Cpf" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Crm" class="control-label">CRM:</label>
-                <input asp-for="Crm" class="form-control" />
-                <span asp-validation-for="Crm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Especialidade" class="control-label">Especialidade:</label>
-                <input asp-for="Especialidade" class="form-control" />
-                <span asp-validation-for="Especialidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdHospital" class="control-label"></label>
-                <select asp-for="IdHospital" class="form-control" asp-items="ViewBag.IdHospital"></select>
-                <span asp-validation-for="IdHospital" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        header {
+            color: #fff;
+            text-align: center;
+        }
 
-<div>
-    <a asp-action="Index">Voltar</a>
-</div>
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        h2 {
+            color: #fff;
+        }
+
+        label {
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+        <h2>Editar Médico</h2>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="IdMedico" />
+                    <div class="form-group">
+                        <label asp-for="Nome" class="control-label">Nome:</label>
+                        <input asp-for="Nome" class="form-control" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cpf" class="control-label">CPF:</label>
+                        <input asp-for="Cpf" class="form-control" />
+                        <span asp-validation-for="Cpf" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Crm" class="control-label">CRM:</label>
+                        <input asp-for="Crm" class="form-control" />
+                        <span asp-validation-for="Crm" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Especialidade" class="control-label">Especialidade:</label>
+                        <input asp-for="Especialidade" class="form-control" />
+                        <span asp-validation-for="Especialidade" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IdHospital" class="control-label">Hospital:</label>
+                        <select asp-for="IdHospital" class="form-control" asp-items="ViewBag.IdHospital"></select>
+                        <span asp-validation-for="IdHospital" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+             <a style="color: #fff;" asp-action="Index">Voltar</a>
+        </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
     }
-}
+</body>
+</html>
