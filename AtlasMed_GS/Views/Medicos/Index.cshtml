@@ -1,0 +1,108 @@
+﻿@model IEnumerable<AtlasMed_GS.Models.Medico>
+
+@{
+    ViewData["Title"] = "Médicos";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtlasMed - Sua plataforma de gerenciamento de registros médicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3498db;
+            color: #333;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        thead {
+            color: #fff;
+        }
+
+        tbody {
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Médicos</h2>
+
+    <p>
+        <a style="color: #fff" asp-action="Create">Cadastrar Médico</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nome:
+                </th>
+                <th>
+                    CPF:
+                </th>
+                <th>
+                    CRM:
+                </th>
+                <th>
+                    Especialidade:
+                </th>
+                <th>
+                    Hospital:
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Crm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Especialidade)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Hospital.Nome) | @Html.DisplayFor(modelItem => item.Hospital.Nome)
+                </td>
+                <td>
+                    <a style="color: #000; padding: 20px;" asp-action="Edit" asp-route-id="@item.IdMedico">Editar</a> |
+                    <a style="color: #000; padding: 20px;" asp-action="Details" asp-route-id="@item.IdMedico">Detalhes</a> |
+                    <a style="color: #000; padding: 20px;" asp-action="Delete" asp-route-id="@item.IdMedico">Excluir</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+
+</body>
+</html>
+

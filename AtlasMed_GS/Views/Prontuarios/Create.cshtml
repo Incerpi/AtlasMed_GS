@@ -1,0 +1,90 @@
+﻿@model AtlasMed_GS.Models.Prontuario
+
+@{
+    ViewData["Title"] = "Cadastrar Prontuário";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtlasMed - Sua plataforma de gerenciamento de registros médicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3498db;
+            color: #333;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        label {
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Cadastrar Prontuário</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label">Descrição:</label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Diagnostico" class="control-label">Diagnóstico:</label>
+                    <input asp-for="Diagnostico" class="form-control" />
+                    <span asp-validation-for="Diagnostico" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Alergias" class="control-label">Alergias:</label>
+                    <input asp-for="Alergias" class="form-control" />
+                    <span asp-validation-for="Alergias" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdMedicacao" class="control-label"></label>
+                    <select asp-for="IdMedicacao" class ="form-control" asp-items="ViewBag.IdMedicacao"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a style="color: #fff;" asp-action="Index">Voltar</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+</body>
+</html>

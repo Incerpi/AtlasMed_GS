@@ -1,0 +1,82 @@
+﻿@model AtlasMed_GS.Models.Prontuario
+
+@{
+    ViewData["Title"] = "Detalhes do Prontuário";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtlasMed - Sua plataforma de gerenciamento de registros médicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3498db;
+            color: #333;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        div {
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Detalhes do Prontuário</h2>
+
+    <div>
+
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                Descrição:
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+            <dt class = "col-sm-2">
+                Diagnóstico:
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Diagnostico)
+            </dd>
+            <dt class = "col-sm-2">
+                Alergias:
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Alergias)
+            </dd>
+            <dt class = "col-sm-2">
+               Medicação:
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Medicacao.Nome)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.IdProntuario">Editar</a> |
+        <a asp-action="Index">Voltar</a>
+    </div>
+
+</body>
+</html>

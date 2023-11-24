@@ -1,0 +1,101 @@
+﻿@model IEnumerable<AtlasMed_GS.Models.Prontuario>
+
+@{
+    ViewData["Title"] = "Prontuários";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtlasMed - Sua plataforma de gerenciamento de registros médicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3498db;
+            color: #333;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        thead {
+            color: #fff;
+        }
+
+        tbody {
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Prontuários</h2>
+
+    <p>
+        <a style="color: #fff" asp-action="Create">Cadastrar Prontuário</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Descrição:
+                </th>
+                <th>
+                    Diagnóstico:
+                </th>
+                <th>
+                    Alergias:
+                </th>
+                <th>
+                    Medicação:
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diagnostico)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alergias)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Medicacao.Nome)
+                </td>
+                <td>
+                    <a style="color: #000; padding: 20px;" asp-action="Edit" asp-route-id="@item.IdProntuario">Editar</a> |
+                    <a style="color: #000; padding: 20px;" asp-action="Details" asp-route-id="@item.IdProntuario">Detalhes</a> |
+                    <a style="color: #000; padding: 20px;" asp-action="Delete" asp-route-id="@item.IdProntuario">Excluir</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+
+</body>
+</html>

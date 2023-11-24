@@ -1,0 +1,92 @@
+﻿@model AtlasMed_GS.Models.Consulta
+
+@{
+    ViewData["Title"] = "Cadastrar Consulta";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtlasMed - Sua plataforma de gerenciamento de registros médicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3498db;
+            color: #333;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        label {
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Cadastrar Consulta</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="IdPaciente" class="control-label">Paciente:</label>
+                    <select asp-for="IdPaciente" class ="form-control" asp-items="ViewBag.IdPaciente"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdMedico" class="control-label">Médico:</label>
+                    <select asp-for="IdMedico" class ="form-control" asp-items="ViewBag.IdMedico"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdProntuario" class="control-label">Prontuário:</label>
+                    <select asp-for="IdProntuario" class ="form-control" asp-items="ViewBag.IdProntuario"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdHospital" class="control-label">Hospital:</label>
+                    <select asp-for="IdHospital" class ="form-control" asp-items="ViewBag.IdHospital"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Horario" class="control-label">Horário:</label>
+                    <input asp-for="Horario" class="form-control" />
+                    <span asp-validation-for="Horario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a style="color: #fff;" asp-action="Index">Voltar</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+</body>
+</html>
