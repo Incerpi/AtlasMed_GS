@@ -10,23 +10,23 @@ using AtlasMed_GS.Persistence;
 
 namespace AtlasMed_GS.Controllers
 {
-    public class MedicosController : Controller
+    public class Medicos1Controller : Controller
     {
         private readonly DatabaseContext _context;
 
-        public MedicosController(DatabaseContext context)
+        public Medicos1Controller(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: Medicos
+        // GET: Medicos1
         public async Task<IActionResult> Index()
         {
             var databaseContext = _context.Medico.Include(m => m.Hospital);
             return View(await databaseContext.ToListAsync());
         }
 
-        // GET: Medicos/Details/5
+        // GET: Medicos1/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Medico == null)
@@ -45,14 +45,14 @@ namespace AtlasMed_GS.Controllers
             return View(medico);
         }
 
-        // GET: Medicos/Create
+        // GET: Medicos1/Create
         public IActionResult Create()
         {
             ViewData["IdHospital"] = new SelectList(_context.Hospital, "IdHospital", "Nome");
             return View();
         }
 
-        // POST: Medicos/Create
+        // POST: Medicos1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -69,7 +69,7 @@ namespace AtlasMed_GS.Controllers
             return View(medico);
         }
 
-        // GET: Medicos/Edit/5
+        // GET: Medicos1/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Medico == null)
@@ -86,7 +86,7 @@ namespace AtlasMed_GS.Controllers
             return View(medico);
         }
 
-        // POST: Medicos/Edit/5
+        // POST: Medicos1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -122,7 +122,7 @@ namespace AtlasMed_GS.Controllers
             return View(medico);
         }
 
-        // GET: Medicos/Delete/5
+        // GET: Medicos1/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Medico == null)
@@ -141,7 +141,7 @@ namespace AtlasMed_GS.Controllers
             return View(medico);
         }
 
-        // POST: Medicos/Delete/5
+        // POST: Medicos1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

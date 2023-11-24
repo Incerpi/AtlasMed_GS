@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AtlasMed_GS.Models
 {
-    [Table("TB_MEDICO")]
+    [Table("TB_MEDICO1")]
     public class Medico
     {
         [Key]
